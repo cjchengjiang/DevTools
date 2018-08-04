@@ -1,0 +1,12 @@
+const lzString = require('lz-string');
+const queryString = require('query-string');
+
+if (process.argv.length < 3) {
+  console.error('Usage: lz-string-decompress ');
+  process.exit(1);
+}
+
+const str = process.argv[2];//"MoFwhiAqCeAOCmBeAzmMz4GMAeOBkIAlgLbzLjGyICMArAMyMBsATAAxu0Ds3eArgCcANolhgA5mQCkLAGLiA9goAmyGbOXxwhIVPqzkmeADt4egCJcAHLTYAWO22r0m-MIngCBAWWTi9AIKSIMDQ5PDEAJLGAGYKgQoA1noAQgBGECCe0AAy8ABu8Lr0AdQcqYUCyIQKxoFMAHRcDdSpyGFZxIGEAPLAMk7UDXYtqQDuhMbKCmMAEvCE4gAWIPVcLKmwhNhFAEoQNYH0bZgC8CbziyuBXC6pQmDG4nwSZiUAXksA+gDCAHJtcAgPjIFJgASXZarErscaTaZjADqhGUICWgTs1DsqWIKiK3QACktamZ2FwBgShCC9D9CESSQBOGQ-Db0ACiJzOJmRqPRJUx2PoKTixhChHe8GAWiIT0C1CYqTSAkeykJxNMmweIDiAi6JRqaiFwHMAGkAGqeaq1QIsBq21kpPCYZAKQRGRBOvgoxDeSAAVXe3kDLG8ACsAmMg36WHh8ohKABaegx8gKM6RZSIWx2LjOFx4MCwLaZsbYGIsNIsejKLgxGK0BtVxh4Exx2ACFR8TBEWp4YtZpicW750gCTBLR4gL7e2iD7jMPCps7TzPZ3MLiaZtgFvhor6eAQoEBp154NIgyZkZCIM7aISLoymGj2LgFovAYljH3+wPBsMRqMWATOhGBcdg2BcJw2AaKwsTKFwuDYJgGSYbgmHoPBFBUapM2sbNHGcVwwG7Qh8kIEBoEwBQhCELAe2MRApC4FImPMFtaNIUVvWIogyKIMgW0KUUKIQRBwFgIA";
+
+const oriStr = lzString.decompressFromEncodedURIComponent(str);
+console.log(queryString.parse(oriStr));
